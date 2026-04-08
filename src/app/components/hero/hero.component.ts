@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent {
 
+export class HeroComponent {
+  scrollTo(e: Event, target: string) {
+    e.preventDefault();
+    document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }
