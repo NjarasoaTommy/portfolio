@@ -1,1 +1,33 @@
-<p>skills works!</p>
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <span class="section-label">02 — Skills</span>
+    <h2 class="section-title">Technologies I work with</h2>
+
+    <div class="badges-row">
+      @for (badge of badges; track badge) {
+        <span class="badge">{{ badge }}</span>
+      }
+    </div>
+
+    <div class="skill-groups">
+      @for (group of groups; track group.category) {
+        <div class="skill-group">
+          <h3 class="group-title">{{ group.category }}</h3>
+          <div class="skill-list">
+            @for (skill of group.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-meta">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-pct mono">{{ skill.level }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
