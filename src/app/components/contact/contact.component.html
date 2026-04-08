@@ -1,1 +1,39 @@
-<p>contact works!</p>
+
+bash
+
+cat > /home/claude/dev-portfolio/src/app/components/contact/contact.html << 'HTML_EOF'
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <span class="section-label">05 — Contact</span>
+    <h2 class="section-title">Let's work together</h2>
+
+    <div class="contact-layout">
+      <div class="contact-text">
+        <p>
+          I'm currently open to new opportunities — freelance projects,
+          full-time roles, or just an interesting conversation about tech.
+          Don't hesitate to reach out.
+        </p>
+        <p class="availability">
+          <span class="status-dot"></span>
+          Available for new projects
+        </p>
+      </div>
+
+      <div class="contact-links">
+        @for (link of links; track link.label) {
+          <a [href]="link.href" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon" [innerHTML]="link.icon"></div>
+            <div class="contact-info">
+              <span class="contact-label">{{ link.label }}</span>
+              <span class="contact-value">{{ link.value }}</span>
+            </div>
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</section>
