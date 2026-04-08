@@ -1,1 +1,37 @@
-<p>about works!</p>
+<section class="section about-section" id="about">
+  <div class="container">
+    <span class="section-label">01 — About</span>
+    <h2 class="section-title">A bit about me</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a full-stack developer with a strong DevOps mindset, focused on
+          building web and mobile applications that are both well-engineered and a pleasure
+          to work with. I thrive at the intersection of backend systems,
+          modern frontend frameworks, and infrastructure automation.
+        </p>
+        <p>
+          My work spans from crafting clean Angular or React UIs and Symfony or Django APIs to
+          containerizing applications with Docker and setting up CI/CD pipelines
+          that actually make deployment painless. I care deeply about developer
+          experience — both for the teams I work with and the end users of
+          what I build.
+        </p>
+        <p>
+          When I'm not writing code, I'm exploring open-source projects,
+          tinkering with homelab setups, or contributing to developer tooling.
+        </p>
+      </div>
+
+      <div class="about-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
