@@ -19,7 +19,7 @@ export class ProjectsComponent {
     {
       title: 'Civil registration platform',
       description:
-        'A project is built to make managing civil informations more easier anywhere in Madagascar.',
+        'A project built to make managing civil informations more easier anywhere in Madagascar.',
       tags: ['Django', 'Angular', 'PostgreSQL'],
       github: 'https://github.com/NjarasoaTommy/etat_civil_platform',
       featured: true,
@@ -35,7 +35,7 @@ export class ProjectsComponent {
     {
       title: 'Petri Net',
       description:
-        'Build an application to show the behavihor of a system using the petri net graph and concept. The system represents he problem of the man who must cross a river with his wolf, his goat, and his cabbage',
+        'Build an application to show the behavihor of a system using the petri net graph and concept. The system represents the problem of the man who must cross a river with his wolf, his goat, and his cabbage',
       tags: ['Angular'],
       github: 'https://github.com/NjarasoaTommy/rdp_project',
       featured: true,
@@ -50,7 +50,7 @@ export class ProjectsComponent {
     {
       title: 'ERP Applicationss',
       description:
-        'An ERP solution to manage all activities of a commercial society. Including Stock management, approvisionning, selling, employee commission and much more.',
+        'An ERP solution to manage all activities of a commercial society. Including Stock management, approvisionning, selling, employee commissions and much more.',
       tags: ['Symfony', 'JQuery', 'Postgresql'],
       github: '#',
     },

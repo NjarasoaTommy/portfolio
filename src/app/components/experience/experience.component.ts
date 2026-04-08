@@ -45,7 +45,7 @@ export class ExperienceComponent {
       description:
         'Worked as a developer by including stock transfer with multiple stocks features.',
       highlights: [
-        'Maked the conception of the new way to manage the stock',
+        'Made the conception of the new way to manage the stock',
         'Integrated the transaction functionnality',
         "Implemented employee's action tracking",
       ],
@@ -61,9 +61,9 @@ export class ExperienceComponent {
         "Joined a dynamic developer's team. Create an application for materials inventory.",
       highlights: [
         'Descoverd how MVC is used really in real project',
-        'Understood the strenght and the weekness of ORM',
-        'Increased the knowledge about conception best practices.',
-        'Validate the importance of using a framework',
+        'Understood the strength and the weakness of ORM',
+        "Increased the knowledge about conception's best practices.",
+        'Validated the importance of using a framework',
       ],
       stack: ['CodeIgniter','JavaScript','MySQL'],
     },
