@@ -29,39 +29,68 @@
   }
 }
 
+.profile-image {
+  width: 350px;
+  height: 350px;
+}
+
 @media (max-width: 968px) {
   .profile-image-container {
     margin-bottom: 1.5rem;
   }
   .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 330px;
+    height: 330px;
     border-width: 3px;
   }
 }
 
 @media (max-width: 768px) {
   .profile-image {
-    width: 140px;
-    height: 140px;
+    width: 300px;
+    height: 300px;
   }
 }
 
-.profile-image {
-    width: 120px;
-    height: 120px;
-    border-width: 3px;
+@media (max-width: 680px) {
+  .hero, .hero-content, .hero-text{
+    width: 100%;
   }
-
-@media (max-width: 480px) {
   .profile-image-container {
     margin-bottom: 1rem;
+    width: 600px;
+  }
+  .profile-image {
+    width: 280px;
+    height: 280px;
+    border-width: 3px;
+  }
+  .hero-actions{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .greeting, .name, .subtitle, .intro, .hero-code{
+    width: 80%;
+    text-align: center;
+  }
+  .title-text:last-child{
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+.profile-image-container {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .profile-image {
+    width: 80%;
+    height: 300px;
+    border-width: 3px;
   }
 }
 
 .profile-image {
-  width: 350px;
-  height: 350px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow:
