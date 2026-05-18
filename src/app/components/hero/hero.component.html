@@ -1,13 +1,27 @@
 <section class="hero section" id="hero">
   <div class="container hero-content">
+    <div class="profile-image-container">
+      <img
+        src="assets/images/profile.png"
+        alt="Njarasoa Tommy - Développeur Full Stack"
+        class="profile-image"
+        loading="eager"
+        (error)="onImageError($event)"
+      />
+    </div>
+
     <div class="hero-text">
       <span class="greeting mono">Hi, I'm</span>
       <h1 class="name">Njarasoa Tommy<br>RAMISARIVELO</h1>
-      <p class="title">
-        <span class="title-text">Full Stack Developer</span>
-        <span class="separator">|</span>
-        <span class="title-text">DevOps</span>
-      </p>
+
+      <h2 class="subtitle typing-animation">
+        <span class="typing-text title">
+          <span class="title-text">Full Stack Developer</span>
+          <span class="separator">|</span>
+          <span class="title-text">DevOps</span>
+        </span>
+      </h2>
+
       <p class="intro">
         I build scalable web or mobile applications and robust infrastructure pipelines.
         Focused on clean code, developer experience, and shipping things that work.
