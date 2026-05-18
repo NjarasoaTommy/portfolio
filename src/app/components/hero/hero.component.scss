@@ -33,7 +33,25 @@
   .profile-image-container {
     margin-bottom: 1.5rem;
   }
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-width: 3px;
+  }
 }
+
+@media (max-width: 768px) {
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-width: 3px;
+  }
 
 @media (max-width: 480px) {
   .profile-image-container {
