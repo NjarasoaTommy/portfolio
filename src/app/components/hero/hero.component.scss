@@ -14,6 +14,59 @@
   align-items: center;
 }
 
+.profile-image-container {
+  max-width: 100%;
+  overflow: hidden; // Image Should not overflows
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  animation: fadeInScale 1s ease-out;
+
+  // keep transparency for dark and light mode
+  @media (prefers-color-scheme: dark) {
+    filter: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .profile-image-container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image-container {
+    margin-bottom: 1rem;
+  }
+}
+
+.profile-image {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: block;
+  user-select: none;
+
+  // Subtitle effect
+  &:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 2px var(--primary-color, #6366f1);
+  }
+}
+
+.profile-image:active {
+  animation: rotate360 0.6s ease;
+}
+
 .hero-text {
   .greeting {
     font-family: 'JetBrains Mono', monospace;
@@ -23,6 +76,33 @@
     display: block;
     margin-bottom: 1rem;
   }
+}
+
+// Title animation - Typing Effect
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary-color, #6366f1);
+  padding-right: 8px;
+  animation:
+    typing 3.5s steps(45, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  max-width: fit-content;
+}
+
+// Stop animation after execution
+.typing-animation.completed {
+  animation: none;
+  border-right: none;
+}
+
+.typing-text {
+  display: inline-block;
+}
+
+.typing-text:hover {
+  animation: glitch 0.3s ease-in-out;
 }
 
 .name {
@@ -36,21 +116,17 @@
 }
 
 .title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
+  font-size: 2.5rem;
+  font-weight: 600;
 
   .title-text {
-    font-size: 1rem;
-    font-weight: 600;
     color: var(--text-secondary);
   }
 
   .separator {
     color: var(--accent);
-    font-weight: 300;
+    font-weight: 700;
+    margin: 0 20px;
   }
 }
 
@@ -125,30 +201,6 @@
   &:hover { box-shadow: var(--shadow-hover); }
 }
 
-.code-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.75rem 1rem;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
-
-  .dot {
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    &.red { background: #ff5f57; }
-    &.yellow { background: #febc2e; }
-    &.green { background: #28c840; }
-  }
-
-  .code-filename {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-left: 0.5rem;
-  }
-}
-
 .code-body {
   padding: 1.5rem;
   overflow-x: auto;
@@ -209,8 +261,171 @@
   }
   .intro { max-width: 100%; }
   .hero-actions { justify-content: center; }
-  .hero-code { order: -1; }
   .code-block { max-width: 340px; }
   .title { justify-content: center; }
   .scroll-hint { display: none; }
+}
+
+// Image apparition animation
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Animation de typing (writter machine effect)
+@keyframes typing {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+// Cursor animation
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-color, #6366f1);
+  }
+}
+
+@keyframes fadeInWords {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+// DARK [data-theme="dark"]
+[data-theme="dark"] {
+  .profile-image {
+    border-color: var(--primary-color, #6366f1);
+    box-shadow:
+      0 10px 40px rgba(99, 102, 241, 0.5),
+      0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+
+  .typing-animation {
+    border-right-color: var(--primary-color, #6366f1);
+  }
+}
+
+// LIGHT
+[data-theme="light"] {
+  .profile-image {
+    border-color: var(--primary-color, #4f46e5);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.15),
+      0 0 0 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .typing-animation {
+    border-right-color: var(--primary-color, #4f46e5);
+  }
+}
+// User preferences
+@media (prefers-reduced-motion: reduce) {
+  .typing-animation {
+    animation: none !important;
+    border-right: none;
+  }
+
+  .profile-image-container {
+    animation: none !important;
+  }
+
+  .profile-image {
+    transition: none;
+  }
+
+  .typing-animation.fade-version {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Fix Safari compatibility
+@supports (-webkit-appearance: none) {
+  .profile-image {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+// Fix Firefox compatibility
+@-moz-document url-prefix() {
+  .typing-animation {
+    border-right-width: 2px;
+  }
+}
+
+// Image pulsation
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 50px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.profile-image {
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+// Glitch effect (Cyberpunk style)
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 var(--primary-color);
+    transform: translateX(0);
+  }
+  20% {
+    text-shadow: -2px 0 var(--accent-color, #ec4899);
+    transform: translateX(-2px);
+  }
+  40% {
+    text-shadow: 2px 0 var(--primary-color);
+    transform: translateX(2px);
+  }
+  60% {
+    text-shadow: -2px 0 var(--accent-color, #ec4899);
+    transform: translateX(0);
+  }
+  100% {
+    text-shadow: none;
+    transform: translateX(0);
+  }
+}
+
+// 360° Rotation when the image is active(on click)
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
 }
